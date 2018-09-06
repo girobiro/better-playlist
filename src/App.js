@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-let defaultTextColor = '#0000FF';
 let defaultStyle = {
-  color: defaultTextColor
+  color: '#FFF'
 }
 
 class Aggregator extends Component {
@@ -43,7 +42,7 @@ class App extends Component {
   render() {
       return (
       <div className="App">
-       <h1>Title</h1>
+       <h1 style={defaultStyle}>Title</h1>
        <Aggregator/>
        <Aggregator/>
        <Filter/>
