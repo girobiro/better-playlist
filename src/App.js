@@ -42,10 +42,11 @@ class App extends Component {
   render() {
       return (
       <div className="App">
-       <h1 style={defaultStyle}>Title</h1>
+       <h1 style={{...defaultStyle, fontSize: '54px'}}>Title</h1>
        <Aggregator/>
        <Aggregator/>
        <Filter/>
+       <Playlist/>
        <Playlist/>
        <Playlist/>
        <Playlist/>
