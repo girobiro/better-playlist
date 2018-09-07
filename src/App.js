@@ -21,14 +21,14 @@ let fakeServerData = {
         name: 'Discover Weekly',
         songs: [
           {name: 'Grip It', duration: 1354},
-          {name: 'Pull It', duration: 1235},
+          {name: 'Graph It', duration: 1235},
           {name: 'Eat It', duration: 3000}
         ]
       },
       {
         name: 'More Favorites',
         songs: [
-          {name: 'Grip It', duration: 1354},
+          {name: 'Trip It', duration: 1354},
           {name: 'Pull It', duration: 1235},
           {name: 'Eat It', duration: 3000}
         ]
@@ -36,7 +36,7 @@ let fakeServerData = {
       {
         name: 'Best Playlist',
         songs: [
-          {name: 'Grip It', duration: 1354},
+          {name: 'Flip It', duration: 1354},
           {name: 'Pull It', duration: 1235},
           {name: 'Eat It', duration: 3000}
         ]
@@ -87,8 +87,12 @@ class Playlist extends Component {
   render () {
     return (
       <div style={{...defaultStyle, width: "25%", display: 'inline-block'}}>
-        <h3>Playlist Name</h3>
-        <ul><li>Song 1</li><li>Song 2</li><li>Song 3</li></ul>
+        <h3>{this.props.playlist.name}</h3>
+        <ul>
+          {this.props.playlist.songs.map(song =>
+            <li>{song.name}</li>
+            )}
+        </ul>
       </div>
     );
   }
@@ -113,10 +117,10 @@ class App extends Component {
             <PlaylistCounter playlists={this.state.serverData.user.playlists}/>
             <HoursCounter playlists={this.state.serverData.user.playlists}/>
             <Filter/>
-            <Playlist/>
-            <Playlist/>
-            <Playlist/>
-            <Playlist/>
+            {this.state.serverData.user.playlists.map(playlist =>
+              <Playlist playlist={playlist} />
+            )}
+
           </div> : <h1 style={defaultStyle}>Loading.....</h1>
           }
         </div>
