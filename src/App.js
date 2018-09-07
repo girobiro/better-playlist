@@ -113,11 +113,11 @@ class App extends Component {
    
   }
   render() {
-    let playlistToRender = this.state.serverData.user.playlists
+    let playlistToRender = this.state.serverData.user ? this.state.serverData.user.playlists
       .filter(playlist =>
         playlist.name.toLowerCase().includes(
           this.state.filterString.toLowerCase())
-    )
+    ) : []
     return (
       <div className="App">
         {this.state.serverData.user ?
